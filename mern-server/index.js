@@ -45,14 +45,14 @@ async function run() {
     });
 
     //get all the books
-    app.get("/all-books", async (req, res) => {
-      const books = bookcollection.find();
-      const response = await books.toArray();
-      res.send(response);
-    });
+    // app.get("/all-books", async (req, res) => {
+    //   const books = bookcollection.find();
+    //   const response = await books.toArray();
+    //   res.send(response);
+    // });
 
     //update book using patch or update request
-    app.patch("/book/:id", async (req,res) => {
+    app.patch("/book/:id", async (req, res) => {
       const id = req.params.id;
       //updatedBookData will be in the boy of the data which we will send from the client
       const updatedBookData = req.body;
@@ -69,6 +69,26 @@ async function run() {
       };
 
       const result = await bookcollection.updateOne(filter, updateDoc, options);
+      res.send(result);
+    });
+
+    //delete a book from the database
+    app.delete("/book/:id", async (req, res) => {
+      const id = req.params.id;
+      // Create a filter for movies with the id from params
+      const filter = { _id: new ObjectId(id) };
+      const result = await bookcollection.deleteOne(filter);
+      res.send(result);
+    });
+
+    //find a book by filter
+    app.get("/all-books", async (req, res) => {
+      let query = {};
+
+      if (req.query?.category) {
+        query = { category: req.query.category };
+      }
+      const result = await bookcollection.find(query).toArray();
       res.send(result);
     });
 
