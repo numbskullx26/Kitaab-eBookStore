@@ -77,8 +77,8 @@ If you have any questions, feedback, or would like to connect, feel free to reac
 
 - **Name:** Indrajeet Sarkar
 - **Email:** sarkarraj1978@gmail.com
-- **Twitter:** "https://twitter.com/0xSCK](https://twitter.com/Indraje63373133"
-- **LinkedIn:** "https://www.linkedin.com/in/indrajeet-sarkar-3bb210224/"
+- **Twitter:** https://twitter.com/0xSCK](https://twitter.com/Indraje63373133
+- **LinkedIn:** https://www.linkedin.com/in/indrajeet-sarkar-3bb210224/
 
 Feel free to contact me through any of the channels above. I'm open to collaborations and discussions related to mern development or any other projects.
 
