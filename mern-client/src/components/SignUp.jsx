@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import googleLogo from "../assets/google-logo.svg";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("error");
 
   const location = useLocation();
@@ -34,6 +35,24 @@ const SignUp = () => {
       });
   };
 
+  const handleRegister = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        alert("User Logged in successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        console.log(errorCode);
+        alert(errorCode);
+
+        var errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -82,6 +101,21 @@ const SignUp = () => {
                   </button>
                 </div>
               </form>
+            </div>
+            <hr />
+
+            <div className="flex flex-col items-center w-full mt-5 gap-3">
+              <button
+                onClick={handleRegister}
+                className="block font-semibold text-lg text-black rounded-lg bg-blue-200 px-4"
+              >
+                <img
+                  src={googleLogo}
+                  alt=""
+                  className="w-12 h-12 inline-block"
+                />
+                Login with Google
+              </button>
             </div>
           </div>
         </div>
