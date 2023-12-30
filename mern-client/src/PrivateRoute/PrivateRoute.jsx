@@ -9,11 +9,13 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex flex-row gap-3">
-        <Button>
-          <Spinner aria-label="Spinner button example" size="sm" />
-          <span className="pl-3">Loading...</span>
-        </Button>
+      <div className="flex flex-row gap-3 items-center mx-auto   ">
+        <div className="text-center">
+          <Button>
+            <Spinner aria-label="Spinner button example" size="sm" />
+            <span className="pl-3">Loading...</span>
+          </Button>
+        </div>
       </div>
     );
   }
