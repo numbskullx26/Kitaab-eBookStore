@@ -12,17 +12,22 @@ import {
 } from "react-icons/hi";
 
 import userImg from "../assets/profile.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 
 const SideBar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <Sidebar aria-label="Sidebar with content separator example">
       <Sidebar.Logo
-        href="#"
-        img={userImg}
+        href="/"
+        img={user?.photoURL}
         imgAlt="Flowbite logo"
-        className="text-blue-600 text-2xl font-bold"
+        className="w-16 h-16"
       >
-        Kitaab
+        {user?.displayName || "Demo User"}
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
