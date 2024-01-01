@@ -5,6 +5,7 @@
 
 Kitaab is a modern and feature-rich EBook store built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It provides a seamless and intuitive platform for users to explore, purchase, and manage their digital book collections. With a clean and responsive user interface, Kitaab offers an engaging reading experience while empowering authors and publishers to showcase their literary works.
 
+
 ## Features
 
 - **User-Friendly Interface**: Kitaab boasts an elegant and user-friendly interface, making it easy for readers to discover and purchase EBooks effortlessly.
